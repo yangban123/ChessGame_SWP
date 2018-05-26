@@ -13,6 +13,7 @@ public class ListenerClass extends Pawn implements ActionListener
 	ChessPieceGiver chessPiece = new ChessPieceGiver();
 	Pawn pawn = new Pawn();
 	Rook rook = new Rook();
+	Queen queen = new Queen();
 	public ListenerClass(ChessButton btn, ChessPieceGiver chessPiece)
 	{
 		this.btn = btn;
@@ -58,12 +59,17 @@ public class ListenerClass extends Pawn implements ActionListener
 			if (chessPiece.getChessPieceNum() % 10 == 0)
 			{
 				// 어디로 움직일 수 있는지 보여준다.
-				pawn.Color(pawn.showCanMovePlace(x, y));
+				pawn.ShowColor(pawn.showCanMovePlace(x, y));
 			}
 			if (chessPiece.getChessPieceNum() % 10 == 3)
 			{
 				// 어디로 움직일 수 있는지 보여준다.
-				rook.Color(rook.showCanMovePlace(x, y));
+				rook.ShowColor(rook.showCanMovePlace(x, y));
+			}
+			if (chessPiece.getChessPieceNum() % 10 == 4)
+			{
+				// 어디로 움직일 수 있는지 보여준다.
+				queen.ShowColor(queen.showCanMovePlace(x,  y));
 			}
 			// ***********************************************
 			// 이 밑으로 다른 말의 코드를 넣어주세요.

@@ -86,5 +86,19 @@ public class Board_1vs1
 			}
 		
 	}
+	
+	public static void initBoardColor()
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			for (int j = 0; j < 8; j++)
+			{
+				if ((i+j) % 2 == 0)
+					Board_1vs1.boardPiece[i][j].setBackground(Color.GRAY);
+				else
+					Board_1vs1.boardPiece[i][j].setBackground(Color.WHITE);
+			}
+		}
+	}
 }
 
