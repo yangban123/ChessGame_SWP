@@ -6,12 +6,13 @@
 import java.awt.Color;
 import java.awt.event.*;
 
-public class ListenerClass implements ActionListener
+
+public class ListenerClass extends Pawn implements ActionListener
 {
 	ChessButton btn = new ChessButton();
 	ChessPieceGiver chessPiece = new ChessPieceGiver();
 	Pawn pawn = new Pawn();
-	
+	Rook rook = new Rook();
 	public ListenerClass(ChessButton btn, ChessPieceGiver chessPiece)
 	{
 		this.btn = btn;
@@ -22,13 +23,12 @@ public class ListenerClass implements ActionListener
 	{
 		int x = btn.getx();
 		int y = btn.gety();
-		
 		System.out.println("(" + x + ", " + y + ")");
 		System.out.println("'" + chessPiece.getChessPieceNum() + "' chess piece is selected." );
 		
 		// Move
 		// 플레이어가 움직이기 위해 버튼을 클릭한 것인지 먼저 확인한다.
-		if (Board_1vs1.boardPiece[x][y].getBackground() == Color.ORANGE) // 움직일 수 있는 곳은 오렌지 색깔이다.
+		if (Board_1vs1.boardPiece[x][y].getBackground() == Color.ORANGE ||Board_1vs1.boardPiece[x][y].getBackground() == Color.RED ) // 움직일 수 있는 곳은 오렌지 색깔이다.
 		{
 			// 움직일 수 있다면 그곳으로 움직이게 한다.
 			Board_1vs1.board[x][y] = Board_1vs1.board[Board_1vs1.activatedChessPiece[0]][Board_1vs1.activatedChessPiece[1]]; // 말을 옮기고
@@ -58,9 +58,13 @@ public class ListenerClass implements ActionListener
 			if (chessPiece.getChessPieceNum() % 10 == 0)
 			{
 				// 어디로 움직일 수 있는지 보여준다.
-				pawn.showCanMovePlace(x, y);
+				pawn.Color(pawn.showCanMovePlace(x, y));
 			}
-			
+			if (chessPiece.getChessPieceNum() % 10 == 3)
+			{
+				// 어디로 움직일 수 있는지 보여준다.
+				rook.Color(rook.showCanMovePlace(x, y));
+			}
 			// ***********************************************
 			// 이 밑으로 다른 말의 코드를 넣어주세요.
 		}

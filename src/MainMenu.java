@@ -38,7 +38,7 @@ public class MainMenu
 		// 액션 리스너 설정
 		btn1vs1.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent  arg0) {
 				Board_1vs1 b1vs1 = new Board_1vs1();
 				b1vs1.initGame();
 			}
