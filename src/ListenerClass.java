@@ -12,6 +12,7 @@ public class ListenerClass extends Pawn implements ActionListener
 	ChessButton btn = new ChessButton();
 	ChessPieceGiver chessPiece = new ChessPieceGiver();
 	Pawn pawn = new Pawn();
+	Bishop bishop = new Bishop();
 	Rook rook = new Rook();
 	Queen queen = new Queen();
 	public ListenerClass(ChessButton btn, ChessPieceGiver chessPiece)
@@ -60,6 +61,11 @@ public class ListenerClass extends Pawn implements ActionListener
 			{
 				// 어디로 움직일 수 있는지 보여준다.
 				pawn.ShowColor(pawn.showCanMovePlace(x, y));
+			}
+			if (chessPiece.getChessPieceNum() % 10 == 1)
+			{
+				// 어디로 움직일 수 있는지 보여준다.
+				bishop.ShowColor(bishop.showCanMovePlace(x, y));
 			}
 			if (chessPiece.getChessPieceNum() % 10 == 3)
 			{
